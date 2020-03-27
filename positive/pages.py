@@ -15,6 +15,6 @@ class ExitPage(Page):
     pass
 
 
-page_sequence = [Introduction, MyPage, MyPage, MyPage, MyPage,
+page_sequence = [MyPage, MyPage, MyPage, MyPage,
             MyPage, MyPage, MyPage, MyPage, MyPage, MyPage, ExitPage
         ]
