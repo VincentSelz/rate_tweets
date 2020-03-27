@@ -10,12 +10,12 @@ class Introduction(Page):
 
 class MyPage(Page):
     def vars_for_template(self):
-        tweets = self.participant.vars['sample']
+        tweets = self.participant.vars['sample'][0]
         print('asdfasdfasdf')
         return dict(
-            currentTweet= tweets[self.round_number - 1],)
+            currentTweet= tweets,)
 
-    form_model = 'participant'
+    form_model = 'player'
 
     form_fields = ['rating']
 
