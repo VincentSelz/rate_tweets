@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class Welcome(Page):
+class WelcomePage(Page):
     pass
 
 page_sequence = [WelcomePage]
