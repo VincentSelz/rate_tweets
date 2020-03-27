@@ -15,25 +15,25 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         app_sequence=['rate_tweets']
     ),
-dict(
+    dict(
         name='ABCD',
         num_demo_participants=3,
-        app_sequence=['positive','optimistic','happiness','emotional']
+        app_sequence=['Welcome','positive','optimistic','happiness','emotional']
     ),
     dict(
         name='BCDA',
         num_demo_participants=3,
-        app_sequence=['optimistic','happiness','emotional','positive']
+        app_sequence=['Welcome','optimistic','happiness','emotional','positive']
     ),
-dict(
+    dict(
         name='CDAB',
         num_demo_participants=3,
-        app_sequence=['happiness','emotional','positive','optimistic']
+        app_sequence=['Welcome','happiness','emotional','positive','optimistic']
     ),
-dict(
+    dict(
         name='DABC',
         num_demo_participants=3,
-        app_sequence=['emotional','positive','optimistic','happiness']
+        app_sequence=['Welcome','emotional','positive','optimistic','happiness']
     ),
 ]
 
