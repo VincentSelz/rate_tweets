@@ -15,6 +15,26 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         app_sequence=['rate_tweets']
     ),
+dict(
+        name='ABCD',
+        num_demo_participants=3,
+        app_sequence=['positive','optimistic','happiness','emotional']
+    ),
+    dict(
+        name='BCDA',
+        num_demo_participants=3,
+        app_sequence=['optimistic','happiness','emotional','positive']
+    ),
+dict(
+        name='CDAB',
+        num_demo_participants=3,
+        app_sequence=['happiness','emotional','positive','optimistic']
+    ),
+dict(
+        name='DABC',
+        num_demo_participants=3,
+        app_sequence=['emotional','positive','optimistic','happiness']
+    ),
 ]
 
 
