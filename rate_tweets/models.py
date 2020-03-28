@@ -25,10 +25,10 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 10
     q_per_round = 10
-    self.get_tweets()
 
-class Subsession(BaseSubsession):
-    def get_tweets(self):
+
+
+    def get_tweets():
         import csv
 
         with open('data/example_corona_tweets.tsv', newline='') as f:
@@ -36,30 +36,36 @@ class Subsession(BaseSubsession):
            data = list(reader)
 
 
-           self.session.vars['data'] = set(map(tuple, data))
+           return set(map(tuple, data))
+
+
+    tweets = get_tweets()
+class Subsession(BaseSubsession):
+
 
     def set_sample(self):
-        sample = set()
+        sample = 'placeholder'
 
         try:
-            sample.add(self.session.vars['data'].pop()[0])
+            #sample.add(Constants.tweets.pop()[0])
+            sample = Constants.tweets.pop()[0]
+            print(sample)
         except KeyError:
             print('no more tweets')
 
 
-        index = range(len(sample))
+        #index = range(len(sample))
 
-        return dict(zip(index, sample))
+        return str(sample) #dict(zip(index, sample))
 
 
 
     def creating_session(self):
 
-        count = 0
         for p in self.get_players():
 
             #p.sample = self.set_sample()
-            p.participant.vars['sample'] = self.set_sample()
+            p.tweet = self.set_sample()
 
 class Group(BaseGroup):
     pass
@@ -67,7 +73,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-
+    tweet = models.StringField()
     rating = models.StringField(widget= widgets.RadioSelectHorizontal, label='',choices =[["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]])
 
 
