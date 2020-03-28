@@ -11,7 +11,7 @@ from otree.api import (
 
 import itertools as it
 import csv
-
+import pandas as pd
 
 author = 'Your name here'
 
@@ -26,8 +26,8 @@ def make_field(choice):
         widget=widgets.RadioSelectHorizontal,
     )
 
-def get_embed_tweet(url)
-'''returns embeded html as String'''
+def get_embed_tweet(url):
+    '''returns embeded html as String'''
     # importing the requests library
     import requests
 
@@ -47,17 +47,24 @@ def get_embed_tweet(url)
 
     return data['html']
 
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.tolist()
+       urls[-1]
+       reader
 def get_tweets():
     import time
-    with open('data/example_corona_tweets.tsv', newline='') as f:
-       reader = csv.reader(f)
-       data = list(reader)
-       # tweets = []
-       # for tweet in data:
-       #     tweets.append(get_embed_tweet(tweet['url']))
-       #     time.sleep(0.2)  #wait to not get banned
-       # data = tweets
-       return set(map(tuple, data))
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.head(21).tolist()
+       tweets = []
+       for tweet in urls:
+           tweets.append(get_embed_tweet('https://twitter.com' + tweet))
+           time.sleep(0.2)  #wait to not get banned
+           print ('one more')
+
+       print(tweets[0])
+       return set(tweets)
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
@@ -76,8 +83,8 @@ class Subsession(BaseSubsession):
         sample = ''
         try:
             #sample.add(Constants.tweets.pop()[0])
-            sample = Constants.tweets.pop()[0]
-            print(sample)
+            sample = Constants.tweets.pop()
+
         except KeyError:
             print('No more tweets to distribute.')
         #index = range(len(sample))
