@@ -43,20 +43,21 @@ class Constants(BaseConstants):
            data = list(reader)
         return set(map(tuple, data))
     tweets = get_tweets()
-    tweet_cycle = itertools.cycle(tweets)
 
 class Subsession(BaseSubsession):
     def set_sample(self):
         shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
+        tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            #sample.add(Constants.tweets.pop()[0])
-            sample = Constants.tweets.pop()[0]
+            # Original idea works but only gives back the whole set; does not cycle.
+            #sample = Constants.tweets.pop()[0]
+            #has parentheses around
+            sample = next(tweet_cycle)
             print(sample)
         except KeyError:
             print('No more tweets to distribute.')
-        #index = range(len(sample))
-        return str(sample) #dict(zip(index, sample))
+        return str(sample)
 
     def creating_session(self):
         shuffled_ratings = random.sample(Constants.choices, len(Constants.choices))
@@ -65,7 +66,6 @@ class Subsession(BaseSubsession):
         for p in self.get_players():
             p.treatment = next(treatments)
             p.participant.vars['treatment'] = p.treatment
-            #p.participant.vars['sample'] = self.set_sample()
             p.tweet = self.set_sample()
 
 class Group(BaseGroup):
