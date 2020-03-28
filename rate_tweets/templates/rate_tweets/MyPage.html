@@ -7,8 +7,8 @@
 
 {% block content %}
 
-    <p>{{ player.tweet }}</p>
-
+    
+    {{ player.tweet |safe  }}
     {% formfields %}
 
     {% next_button %}

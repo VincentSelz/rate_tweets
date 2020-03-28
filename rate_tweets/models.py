@@ -25,10 +25,38 @@ def make_field(choice):
         label="",
         widget=widgets.RadioSelectHorizontal,
     )
+
+def get_embed_tweet(url)
+'''returns embeded html as String'''
+    # importing the requests library
+    import requests
+
+    # api-endpoint
+    URL = "https://publish.twitter.com/oembed"#"?buttonType=HashtagButton&query=asdfasdf&widget=Button"
+
+    # defining a params dict for the parameters to be sent to the API
+    PARAMS = {'url': url,
+        'buttonType': 'HashtagButton',
+        'hide_thread': 'false'}
+
+    # sending get request and saving the response as response object
+    r = requests.get(url = URL, params = PARAMS)
+
+    # extracting data in json format
+    data = r.json()
+
+    return data['html']
+
 def get_tweets():
+    import time
     with open('data/example_corona_tweets.tsv', newline='') as f:
        reader = csv.reader(f)
        data = list(reader)
+       # tweets = []
+       # for tweet in data:
+       #     tweets.append(get_embed_tweet(tweet['url']))
+       #     time.sleep(0.2)  #wait to not get banned
+       # data = tweets
        return set(map(tuple, data))
 
 class Constants(BaseConstants):
