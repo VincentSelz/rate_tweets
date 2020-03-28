@@ -36,9 +36,10 @@ class MyPage(Page):
 
 
 class ExitPage(Page):
-    def is_displayed(self):
-        return self.round_number > 10
+    pass
+    #def is_displayed(self):
+    #    return self.round_number == 10
 
 
-page_sequence = [Introduction, MyPage, ExitPage
-        ]
+page_sequence = [Introduction, MyPage, MyPage, MyPage, MyPage, MyPage, MyPage, MyPage,
+        MyPage, MyPage, MyPage, ExitPage]
