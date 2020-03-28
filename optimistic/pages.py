@@ -12,9 +12,9 @@ class MyPage(Page):
     form_fields = ['rating']
 
 class ExitPage(Page):
-    pass
+    def is_displayed(self):
+        return self.round_number == 10
 
 
-page_sequence = [MyPage, MyPage, MyPage, MyPage,
-            MyPage, MyPage, MyPage, MyPage, MyPage, MyPage, ExitPage
+page_sequence = [MyPage, ExitPage
         ]
