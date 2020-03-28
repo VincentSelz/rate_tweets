@@ -9,6 +9,9 @@ from otree.api import (
     currency_range,
 )
 
+import itertools 
+import csv
+import random
 
 author = 'Your name here'
 
@@ -44,15 +47,16 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def set_sample(self):
         #sample = set()
+        shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
         sample = ''
         try:
-            #sample.add(Constants.tweets.pop()[0])
-            sample = Constants.tweets.pop()[0]
+            sample = shuffled_tweets.pop()[0]
+            # Working version
+            #sample = Constants.tweets.pop()[0]
             print(sample)
         except KeyError:
             print('No more tweets to distribute.')
-        #index = range(len(sample))
-        return str(sample) #dict(zip(index, sample))
+        return str(sample)
 
     def creating_session(self):
         for p in self.get_players():
