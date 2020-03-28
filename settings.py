@@ -14,7 +14,7 @@ SESSION_CONFIGS = [
         name='rate_tweets',
         num_demo_participants=4,
         app_sequence=['rate_tweets'],
-        num_demo_rounds=10,
+        num_demo_rounds=40,
     ),
     dict(
         name='ABCD',
