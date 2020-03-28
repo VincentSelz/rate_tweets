@@ -12,8 +12,9 @@ SESSION_CONFIG_DEFAULTS = dict(
 SESSION_CONFIGS = [
     dict(
         name='rate_tweets',
-        num_demo_participants=3,
-        app_sequence=['rate_tweets']
+        num_demo_participants=4,
+        app_sequence=['rate_tweets'],
+        num_demo_rounds=10,
     ),
     dict(
         name='ABCD',
