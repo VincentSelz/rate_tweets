@@ -9,9 +9,10 @@ from otree.api import (
     currency_range,
 )
 
-import itertools 
+import itertools
 import csv
 import random
+import pandas as pd
 
 author = 'Your name here'
 
@@ -35,23 +36,31 @@ class Constants(BaseConstants):
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
     choices = [positive,optimistic,happiness,emotional]
-    def get_tweets():
-        with open('data/example_corona_tweets.tsv', newline='') as f:
-           reader = csv.reader(f)
-           data = list(reader)
+    #def get_tweets():
+    #    with open('data/example_corona_tweets.tsv', newline='') as f:
+    #       reader = csv.reader(f)
+    #       data = list(reader)
 
-        return set(map(tuple, data))
-    tweets = get_tweets()
+    #    return set(map(tuple, data))
+    #tweets = get_tweets()
+    def get_tweet_text():
+        with open('data/test_data.csv', newline='') as f:
+            reader = pd.read_csv(f)
+        text = reader.text.tolist()
+        return text
+    tweets = get_tweet_text()
 
 
 class Subsession(BaseSubsession):
     def set_sample(self):
         shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
+        tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            sample = shuffled_tweets.pop()[0]
-            # Working version
+            # Original idea works but only gives back the whole set; does not cycle.
             #sample = Constants.tweets.pop()[0]
+            #has parentheses around
+            sample = next(tweet_cycle)
             print(sample)
         except KeyError:
             print('No more tweets to distribute.')
