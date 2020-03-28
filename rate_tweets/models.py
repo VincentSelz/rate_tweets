@@ -13,6 +13,8 @@ import itertools
 import csv
 import random
 import pandas as pd
+import requests
+import time
 
 
 author = 'Your name here'
@@ -32,6 +34,43 @@ def extend_treatment(list_of_lists):
     for list in list_of_lists:
         treat.extend(10*list)
     return treat
+
+def get_embed_tweet(url):
+    '''returns embeded html as String'''
+
+    # api-endpoint
+    URL = "https://publish.twitter.com/oembed"#"?buttonType=HashtagButton&query=asdfasdf&widget=Button"
+
+    # defining a params dict for the parameters to be sent to the API
+    PARAMS = {'url': url,
+        'buttonType': 'HashtagButton',
+        'hide_thread': 'false'}
+
+    # sending get request and saving the response as response object
+    r = requests.get(url = URL, params = PARAMS)
+
+    # extracting data in json format
+    data = r.json()
+
+    return data['html']
+
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.tolist()
+       urls[-1]
+       reader
+def get_tweets():
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.head(21).tolist()
+       tweets = []
+       for tweet in urls:
+           tweets.append(get_embed_tweet('https://twitter.com' + tweet))
+           time.sleep(0.2)  #wait to not get banned
+           print ('one more')
+
+       print(tweets[0])
+       return set(tweets)
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
@@ -58,12 +97,13 @@ class Constants(BaseConstants):
     #       data = list(reader)
     #    return set(map(tuple, data))
     #tweets = get_tweets()
-    def get_tweet_text():
-        with open('data/test_data.csv', newline='') as f:
-            reader = pd.read_csv(f)
-        text = reader.text.tolist()
-        return text
-    tweets = get_tweet_text()
+    #def get_tweet_text():
+    #    with open('data/test_data.csv', newline='') as f:
+    #        reader = pd.read_csv(f)
+    #    text = reader.text.tolist()
+    #    return text
+    #tweets = get_tweet_text()
+    tweets = get_tweets()
 
 class Subsession(BaseSubsession):
     def set_sample(self):
