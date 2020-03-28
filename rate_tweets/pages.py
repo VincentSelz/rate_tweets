@@ -34,6 +34,8 @@ class MyPage(Page):
 
 class ExitPage(Page):
     def is_displayed(self):
+        #if self.round_number/10 == int:
+            #return true         
         return self.round_number == 10 or self.round_number == 20 or self.round_number == 30
 
 

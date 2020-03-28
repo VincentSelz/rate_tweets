@@ -48,7 +48,6 @@ def get_embed_tweet(url):
 
     # sending get request and saving the response as response object
     r = requests.get(url = URL, params = PARAMS)
-
     # extracting data in json format
     data = r.json()
 
@@ -62,12 +61,20 @@ def get_embed_tweet(url):
 def get_tweets():
     with open('data/test_data.csv', newline='') as f:
        reader = pd.read_csv(f)
-       urls = reader.tweet_url.head(21).tolist()
+       # this is the whole list
+       #urls = reader.tweet_url.tolist()
+       # to test a short one does the trick
+       urls = reader.tweet_url.head(200).tolist()
        tweets = []
        for tweet in urls:
-           tweets.append(get_embed_tweet('https://twitter.com' + tweet))
-           time.sleep(0.2)  #wait to not get banned
-           print ('one more')
+           try:
+               tweets.append(get_embed_tweet('https://twitter.com' + tweet))
+               #time.sleep(0.1)  #wait to not get banned
+               print ('one more')
+           except Exception:
+               print('this tweet cannot be displayed.')
+               pass
+
 
        print(tweets[0])
        return set(tweets)
@@ -107,11 +114,12 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def set_sample(self):
-        shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
-        tweet_cycle = itertools.cycle(shuffled_tweets)
+        #shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
+        #tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            sample = next(tweet_cycle)
+            sample = Constants.tweets.pop()
+            #sample = next(tweet_cycle)
             print(sample)
         except KeyError:
             print('No more tweets to distribute.')
