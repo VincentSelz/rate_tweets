@@ -25,11 +25,6 @@ def make_field(choice):
         label="",
         widget=widgets.RadioSelectHorizontal,
     )
-def get_tweets():
-    with open('data/example_corona_tweets.tsv', newline='') as f:
-       reader = csv.reader(f)
-       data = list(reader)
-       return set(map(tuple, data))
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
@@ -40,6 +35,12 @@ class Constants(BaseConstants):
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
+    def get_tweets():
+        with open('data/example_corona_tweets.tsv', newline='') as f:
+           reader = csv.reader(f)
+           data = list(reader)
+           
+        return set(map(tuple, data))
     tweets = get_tweets()
 
 class Subsession(BaseSubsession):

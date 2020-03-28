@@ -26,16 +26,38 @@ def make_field(choice):
 class Constants(BaseConstants):
     name_in_url = 'emotional'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 10
     positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"]]
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
     choices = [positive,optimistic,happiness,emotional]
+    def get_tweets():
+        with open('data/example_corona_tweets.tsv', newline='') as f:
+           reader = csv.reader(f)
+           data = list(reader)
+
+        return set(map(tuple, data))
+    tweets = get_tweets()
 
 
 class Subsession(BaseSubsession):
-    pass
+    def set_sample(self):
+        #sample = set()
+        sample = ''
+        try:
+            #sample.add(Constants.tweets.pop()[0])
+            sample = Constants.tweets.pop()[0]
+            print(sample)
+        except KeyError:
+            print('No more tweets to distribute.')
+        #index = range(len(sample))
+        return str(sample) #dict(zip(index, sample))
+
+    def creating_session(self):
+        for p in self.get_players():
+            #p.participant.vars['sample'] = self.set_sample()
+            p.tweet = self.set_sample()
 
 
 class Group(BaseGroup):
@@ -43,4 +65,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    tweet = models.StringField()
     rating = make_field(Constants.emotional)
