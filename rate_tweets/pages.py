@@ -14,9 +14,22 @@ class MyPage(Page):
     #    print('Tweet is displayed')
     #    return dict(
     #        currentTweet= tweets,)
-
     form_model = 'player'
-    form_fields = ['rating']
+    def get_form_fields(self):
+        if self.participant.vars['treatment'] == 'positive':
+            form_fields = ['pos_rating']
+            return form_fields
+        elif self.participant.vars['treatment'] == 'optimistic':
+            form_fields = ['opt_rating']
+            return form_fields
+        elif self.participant.vars['treatment'] == 'happiness':
+            form_fields = ['hap_rating']
+            return form_fields
+        elif self.participant.vars['treatment'] == 'emotional':
+            form_fields = ['emo_rating']
+            return form_fields
+
+    #form_fields = ['rating']
 
 
 

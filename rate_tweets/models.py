@@ -9,8 +9,9 @@ from otree.api import (
     currency_range,
 )
 
-import itertools as it
+import itertools
 import csv
+import random
 
 
 author = 'Your name here'
@@ -35,17 +36,18 @@ class Constants(BaseConstants):
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
+    choices = ['positive', 'optimistic', 'happiness', 'emotional']
     def get_tweets():
         with open('data/example_corona_tweets.tsv', newline='') as f:
            reader = csv.reader(f)
            data = list(reader)
-           
         return set(map(tuple, data))
     tweets = get_tweets()
+    tweet_cycle = itertools.cycle(tweets)
 
 class Subsession(BaseSubsession):
     def set_sample(self):
-        #sample = set()
+        shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
         sample = ''
         try:
             #sample.add(Constants.tweets.pop()[0])
@@ -57,7 +59,12 @@ class Subsession(BaseSubsession):
         return str(sample) #dict(zip(index, sample))
 
     def creating_session(self):
+        shuffled_ratings = random.sample(Constants.choices, len(Constants.choices))
+        treatments = itertools.cycle(shuffled_ratings)
+        print('Shuffle ratings')
         for p in self.get_players():
+            p.treatment = next(treatments)
+            p.participant.vars['treatment'] = p.treatment
             #p.participant.vars['sample'] = self.set_sample()
             p.tweet = self.set_sample()
 
@@ -67,4 +74,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     tweet = models.StringField()
+    treatment = models.StringField()
     rating = make_field(Constants.positive)
+    pos_rating = make_field(Constants.positive)
+    opt_rating = make_field(Constants.optimistic)
+    hap_rating = make_field(Constants.happiness)
+    emo_rating = make_field(Constants.emotional)
