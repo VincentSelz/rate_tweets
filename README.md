@@ -6,7 +6,7 @@ Follow the instructions on https://otree.readthedocs.io/en/latest/install.html t
 
 ## General Structure
 
-This repo consists of several apps, those named after sentiments, use the respective scale and let the participants rate tweets. These are used in sequences.  
+This repo consists of several apps, those are named after sentiments and use the respective scale and let the participants rate tweets. There are several sequences of these apps.
 
 ### Run the survey
 
