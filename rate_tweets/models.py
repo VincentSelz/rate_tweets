@@ -27,17 +27,31 @@ def make_field(choice):
         label="",
         widget=widgets.RadioSelectHorizontal,
     )
+def extend_treatment(list_of_lists):
+    treat = []
+    for list in list_of_lists:
+        treat.extend(10*list)
+    return treat
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
     players_per_group = None
-    num_rounds = 10
+    num_participants = 4
+    num_rounds = 40
     q_per_round = 10
     positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"]]
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
-    choices = ['positive', 'optimistic', 'happiness', 'emotional']
+    choices = [['positive'], ['optimistic'], ['happiness'], ['emotional']]
+    treatment_cycles = []
+    for i in range(num_participants):
+        shuffled_rating = random.sample(choices, len(choices))
+        real_treatments = extend_treatment(shuffled_rating)
+        treatment_cycle = itertools.cycle(real_treatments)
+        treatment_cycles.append(treatment_cycle)
+
+
     #def get_tweets():
     #    with open('data/example_corona_tweets.tsv', newline='') as f:
     #       reader = csv.reader(f)
@@ -57,8 +71,6 @@ class Subsession(BaseSubsession):
         tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            # Original idea works but only gives back the whole set; does not cycle.
-            #sample = Constants.tweets.pop()[0]
             sample = next(tweet_cycle)
             print(sample)
         except KeyError:
@@ -66,13 +78,11 @@ class Subsession(BaseSubsession):
         return str(sample)
 
     def creating_session(self):
-        shuffled_ratings = random.sample(Constants.choices, len(Constants.choices))
-        treatments = itertools.cycle(shuffled_ratings)
-        print('Shuffle ratings')
+        count = 0
         for p in self.get_players():
-            p.treatment = next(treatments)
-            p.participant.vars['treatment'] = p.treatment
+            p.treatment = next(Constants.treatment_cycles[count])
             p.tweet = self.set_sample()
+            count += 1
 
 class Group(BaseGroup):
     pass

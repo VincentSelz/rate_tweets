@@ -16,18 +16,15 @@ class MyPage(Page):
     #        currentTweet= tweets,)
     form_model = 'player'
     def get_form_fields(self):
-        if self.participant.vars['treatment'] == 'positive':
+        if self.player.treatment == 'positive':
             form_fields = ['pos_rating']
-            return form_fields
-        elif self.participant.vars['treatment'] == 'optimistic':
+        elif self.player.treatment == 'optimistic':
             form_fields = ['opt_rating']
-            return form_fields
-        elif self.participant.vars['treatment'] == 'happiness':
+        elif self.player.treatment == 'happiness':
             form_fields = ['hap_rating']
-            return form_fields
-        elif self.participant.vars['treatment'] == 'emotional':
+        elif self.player.treatment == 'emotional':
             form_fields = ['emo_rating']
-            return form_fields
+        return form_fields
 
     #form_fields = ['rating']
 
@@ -36,10 +33,8 @@ class MyPage(Page):
 
 
 class ExitPage(Page):
-    pass
-    #def is_displayed(self):
-    #    return self.round_number == 10
+    def is_displayed(self):
+        return self.round_number == 10 or self.round_number == 20 or self.round_number == 30
 
 
-page_sequence = [Introduction, MyPage, MyPage, MyPage, MyPage, MyPage, MyPage, MyPage,
-        MyPage, MyPage, MyPage, ExitPage]
+page_sequence = [Introduction, MyPage, ExitPage]
