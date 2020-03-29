@@ -69,7 +69,6 @@ def get_tweets():
            try:
                tweets.append(get_embed_tweet('https://twitter.com' + tweet))
                #time.sleep(0.1)  #wait to not get banned
-               print ('one more tweet.')
            except Exception:
                print('this tweet cannot be displayed.')
                pass
