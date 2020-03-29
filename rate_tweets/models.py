@@ -36,10 +36,13 @@ def extend_treatment(list_of_lists):
     return treat
 
 def get_embed_tweet(url):
-    '''returns embeded html as String'''
-
+    """Reads in tweet-url returns embeded html as String
+    Args: url of the tweet.
+    Functionality: Reads in the URL, contacts publish twitter, extracts json
+    data and returns the html.
+    """
     # api-endpoint
-    URL = "https://publish.twitter.com/oembed"#"?buttonType=HashtagButton&query=asdfasdf&widget=Button"
+    URL = "https://publish.twitter.com/oembed"
 
     # defining a params dict for the parameters to be sent to the API
     PARAMS = {'url': url,
@@ -53,30 +56,23 @@ def get_embed_tweet(url):
 
     return data['html']
 
-    with open('data/test_data.csv', newline='') as f:
-       reader = pd.read_csv(f)
-       urls = reader.tweet_url.tolist()
-       urls[-1]
-       reader
+
 def get_tweets():
     with open('data/test_data.csv', newline='') as f:
        reader = pd.read_csv(f)
-       # this is the whole list
+       # this is the whole list (and takes ages)
        #urls = reader.tweet_url.tolist()
-       # to test a short one does the trick
-       urls = reader.tweet_url.head(200).tolist()
+       # to test a short one, this does the trick
+       urls = reader.tweet_url.head(20).tolist()
        tweets = []
        for tweet in urls:
            try:
                tweets.append(get_embed_tweet('https://twitter.com' + tweet))
                #time.sleep(0.1)  #wait to not get banned
-               print ('one more')
+               print ('one more tweet.')
            except Exception:
                print('this tweet cannot be displayed.')
                pass
-
-
-       print(tweets[0])
        return set(tweets)
 
 class Constants(BaseConstants):
@@ -84,43 +80,30 @@ class Constants(BaseConstants):
     players_per_group = None
     num_participants = 4
     num_rounds = 40
-    q_per_round = 10
+
+    #Choices for different StringFields
     positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"]]
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
     emotional = [["Sachlich","Sachlich"],["Neutral","Neutral"],["Emotional","Emotional"]]
     choices = [['positive'], ['optimistic'], ['happiness'], ['emotional']]
+
+    # Treatments as list of list.
     treatment_cycles = []
     for i in range(num_participants):
         shuffled_rating = random.sample(choices, len(choices))
+        #Expands treatments to 10 rounds per treatment.
         real_treatments = extend_treatment(shuffled_rating)
+        # Turns treatment into cycles and stores them in a list.
         treatment_cycle = itertools.cycle(real_treatments)
         treatment_cycles.append(treatment_cycle)
-
-
-    #def get_tweets():
-    #    with open('data/example_corona_tweets.tsv', newline='') as f:
-    #       reader = csv.reader(f)
-    #       data = list(reader)
-    #    return set(map(tuple, data))
-    #tweets = get_tweets()
-    #def get_tweet_text():
-    #    with open('data/test_data.csv', newline='') as f:
-    #        reader = pd.read_csv(f)
-    #    text = reader.text.tolist()
-    #    return text
-    #tweets = get_tweet_text()
     tweets = get_tweets()
 
 class Subsession(BaseSubsession):
     def set_sample(self):
-        #shuffled_tweets = random.sample(Constants.tweets,len(Constants.tweets))
-        #tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
             sample = Constants.tweets.pop()
-            #sample = next(tweet_cycle)
-            print(sample)
         except KeyError:
             print('No more tweets to distribute.')
         return str(sample)
@@ -139,7 +122,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     tweet = models.StringField()
     treatment = models.StringField()
-    rating = make_field(Constants.positive)
     pos_rating = make_field(Constants.positive)
     opt_rating = make_field(Constants.optimistic)
     hap_rating = make_field(Constants.happiness)

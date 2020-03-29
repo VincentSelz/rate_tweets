@@ -9,11 +9,6 @@ class Introduction(Page):
 
 
 class MyPage(Page):
-    #def vars_for_template(self):
-    #    tweets = self.participant.vars['sample'][0]
-    #    print('Tweet is displayed')
-    #    return dict(
-    #        currentTweet= tweets,)
     form_model = 'player'
     def get_form_fields(self):
         if self.player.treatment == 'positive':
@@ -26,16 +21,8 @@ class MyPage(Page):
             form_fields = ['emo_rating']
         return form_fields
 
-    #form_fields = ['rating']
-
-
-
-
-
 class ExitPage(Page):
     def is_displayed(self):
-        #if self.round_number/10 == int:
-            #return True         
         return self.round_number == 10 or self.round_number == 20 or self.round_number == 30
 
 
