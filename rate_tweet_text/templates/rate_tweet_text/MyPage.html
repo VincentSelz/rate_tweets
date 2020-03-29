@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Bitte bewerten Sie diesen Tweet.
+{% endblock %}
+
+{% block content %}
+
+    <p>{{ player.tweet }}</p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
