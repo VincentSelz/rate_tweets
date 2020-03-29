@@ -6,7 +6,24 @@ Follow the instructions on https://otree.readthedocs.io/en/latest/install.html t
 
 ## General Structure
 
-This repo consists of several apps, those are named after sentiments and use the respective scale and let the participants rate tweets. There are several sequences of these apps.
+This repo consists of several apps. There are apps for only one sentiment spanning ten rounds, and integrated apps. The integrated apps are:
+
+- <b> rate_tweet_text </b>
+- <b> rate_tweets </b>
+
+The first only displays only the text to the partcipant, whereas the latter displays the tweet.
+
+### rate_tweet_text
+
+This app runs 40 rounds and every 10 rounds it changes the choice of answer the partcipant can give.
+The tweets are distributed to the particpants randomly.
+
+### rate_tweets
+
+This app runs 40 rounds and every 10 rounds it changes the choice of answer the partcipant can give.
+The tweets are distributed to the particpants randomly.
+
+Since the tweets are displayed as such, it takes a long time until the session can run because the tweets have to be retrieved from twitter.
 
 ### Run the survey
 
