@@ -63,7 +63,7 @@ def get_tweets():
        # this is the whole list (and takes ages)
        #urls = reader.tweet_url.tolist()
        # to test a short one, this does the trick
-       urls = reader.tweet_url.head(200).tolist()
+       urls = reader.tweet_url.head(20).tolist()
        tweets = []
        for tweet in urls:
            try:
