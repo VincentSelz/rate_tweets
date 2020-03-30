@@ -72,7 +72,7 @@ def get_tweets():
            except Exception:
                print('this tweet cannot be displayed.')
                pass
-       return set(tweets)
+       return tweets
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
@@ -100,9 +100,12 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def set_sample(self):
+        shuffled_tweets = random.sample(Constants.tweets, len(Constants.tweets))
+        tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            sample = Constants.tweets.pop()
+            #sample = Constants.tweets.pop()
+            sample = next(tweet_cycle)
         except KeyError:
             print('No more tweets to distribute.')
         return str(sample)
