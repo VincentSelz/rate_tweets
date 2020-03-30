@@ -22,6 +22,13 @@ SESSION_CONFIGS = [
         app_sequence=['rate_tweet_text'],
         num_demo_rounds=40,
     ),
+    dict(
+        name='rate_tweets_with_bots',
+        num_demo_participants=4,
+        app_sequence=['rate_tweets'],
+        num_demo_rounds=40,
+        use_browser_bots=True,
+    ),
 ]
 
 
