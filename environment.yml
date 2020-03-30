@@ -1,0 +1,11 @@
+name: rate-tweets
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip
+  - pandas
+  - requests
+  - pip:
+    - otree>=2.1.28
+    - service_identity
