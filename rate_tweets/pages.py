@@ -31,19 +31,14 @@ def get_embed_tweet(url):
 
 
 class MyPage(Page):
-<<<<<<< Updated upstream
-    # def vars_for_template(self):
-    #     tweets = self.participant.vars['sample']
-    #     print('asdfasdfasdf')
-    #     return dict(
-    #         currentTweet= tweets,)
-=======
+
+
     def vars_for_template(self):
        tweets = get_embed_tweet('https://twitter.com' + self.player.tweet)
        print('Tweet is displayed')
        return dict(
            currentTweet= tweets,)
->>>>>>> Stashed changes
+
 
     form_model = 'player'
 

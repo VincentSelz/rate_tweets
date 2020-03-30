@@ -18,9 +18,7 @@ doc = """
 Your app description
 """
 
-<<<<<<< Updated upstream
 
-=======
 def make_field(choice):
     return models.StringField(
         choices=choice,
@@ -29,12 +27,6 @@ def make_field(choice):
     )
 
 
-
-    with open('data/test_data.csv', newline='') as f:
-       reader = pd.read_csv(f)
-       urls = reader.tweet_url.tolist()
-       urls[-1]
-       reader
 def get_tweets():
     import time
     with open('data/test_data.csv', newline='') as f:
@@ -56,17 +48,6 @@ class Constants(BaseConstants):
     num_rounds = 10
     q_per_round = 10
 
-
-
-    def get_tweets():
-        import csv
-
-        with open('data/example_corona_tweets.tsv', newline='') as f:
-           reader = csv.reader(f)
-           data = list(reader)
-
-
-           return set(map(tuple, data))
 
 
     tweets = get_tweets()
