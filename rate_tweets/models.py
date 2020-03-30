@@ -18,7 +18,37 @@ doc = """
 Your app description
 """
 
+<<<<<<< Updated upstream
 
+=======
+def make_field(choice):
+    return models.StringField(
+        choices=choice,
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+
+
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.tolist()
+       urls[-1]
+       reader
+def get_tweets():
+    import time
+    with open('data/test_data.csv', newline='') as f:
+       reader = pd.read_csv(f)
+       urls = reader.tweet_url.head(21).tolist()
+       # tweets = []
+       # for tweet in urls:
+       #     tweets.append(get_embed_tweet('https://twitter.com' + tweet))
+       #     time.sleep(0.2)  #wait to not get banned
+       #     print ('one more')
+       #
+       # print(tweets[0])
+       return set(urls)
+>>>>>>> Stashed changes
 
 class Constants(BaseConstants):
     name_in_url = 'rate_tweets'
