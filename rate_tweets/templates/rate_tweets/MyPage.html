@@ -8,9 +8,41 @@
 {% block content %}
 
 
-    {{ player.tweet |safe  }}
-    {% formfields %}
+{% if player.treatment == "positive" %}
+<a
+<div>
+    <button name="pos_rating" value="Negativ" class="btn btn-primary btn-large">Negativ</button>
+    <button name="pos_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="pos_rating" value="Positiv" class="btn btn-primary btn-large">Positiv</button>
+</div>
+>
+{% elif player.treatment == "happiness" %}
+<a
+<div>
+    <button name="hap_rating" value="Verärgert" class="btn btn-primary btn-large">Verärgert</button>
+    <button name="hap_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="hap_rating" value="Zufrieden" class="btn btn-primary btn-large">Zufrieden</button>
+</div>
+>
+{% elif player.treatment == "emotional" %}
+<a
+<div>
+    <button name="emo_rating" value="Sachlich" class="btn btn-primary btn-large">Sachlich</button>
+    <button name="emo_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="emo_rating" value="Emotional" class="btn btn-primary btn-large">Emotional</button>
+</div>
+>
+{% elif player.treatment == "optimistic"  %}
+<a
+<div>
+    <button name="opt_rating" value="Pessimistisch" class="btn btn-primary btn-large">Pessimistisch</button>
+    <button name="opt_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="opt_rating" value="Optimistisch" class="btn btn-primary btn-large">Optimistisch</button>
+</div>
 
-    {% next_button %}
+{% endif %}
+
+
+    {{ player.tweet |safe  }}
 
 {% endblock %}
