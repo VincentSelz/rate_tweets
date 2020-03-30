@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Bitte bewerten Sie diesen Tweet.
+{% endblock %}
+
+{% block content %}
+
+<table width="50%">
+    {% for field in form %}
+        <tr>
+            <th>{{ field.label }}</th>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+{{ player.tweet |safe  }}
+
+    {% next_button %}
+
+{% endblock %}
