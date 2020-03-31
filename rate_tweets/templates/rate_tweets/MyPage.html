@@ -2,11 +2,10 @@
 {% load otree static %}
 
 {% block title %}
-    Bitte bewerten Sie diesen Tweet.
+Bitte bewerten Sie diesen Tweet.
 {% endblock %}
 
 {% block content %}
-
 
 {% if player.treatment == "positive" %}
 <a
@@ -40,7 +39,6 @@
 </div>
 
 {% endif %}
-
 
     {{ player.tweet |safe  }}
 
