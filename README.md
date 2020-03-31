@@ -18,6 +18,7 @@ rounds, and integrated apps. The integrated apps are:
 
 - <b> all_scales </b>
 - <b> rate_tweets </b>
+- <b> rate_tweets_with_bots </b>
 
 The first displays all possible rating scales to the participant, whereas the latter only displays one scale
 
@@ -30,7 +31,11 @@ This app runs 40 rounds and every round the participant can answer on all four s
 This app runs 40 rounds and every 10 rounds it changes the choice of answer the
 participant can give. The tweets are distributed to the participants randomly.
 
-### Run the survey
+### rate_tweets_with_bots
+
+When you are mainly interested in managing the survey data, I encourage this version, where bots are answering the survey.
+
+## Run the survey
 
 To run the survey one has to navigate to the parent folder of the project. Then, run:
 
