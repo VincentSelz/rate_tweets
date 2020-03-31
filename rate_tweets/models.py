@@ -48,11 +48,11 @@ class Constants(BaseConstants):
     num_rounds = 40
 
     #Choices for different StringFields
-    positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"]]
-    optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"]]
-    happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"]]
-    emotional = [["Sachlich","Sachlich"],["Emotional","Emotional"]]
-    choices = [['positive'], ['optimistic'], ['happiness'], ['emotional']]
+    positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"],["Nicht zutreffend", "Nicht zutreffend"]]
+    optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"],["Nicht zutreffend", "Nicht zutreffend"]]
+    happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"],["Nicht zutreffend", "Nicht zutreffend"]]
+    emotional = [["Sachlich","Sachlich"],["Emotional","Emotional"],["Nicht zutreffend", "Nicht zutreffend"]]
+    choices = [['positive'], ['optimistic'], ['happiness'], ['emotional'],["Nicht zutreffend", "Nicht zutreffend"]]
 
     # Treatments as list of list.
     treatment_cycles = []
