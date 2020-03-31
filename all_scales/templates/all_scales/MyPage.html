@@ -8,14 +8,29 @@
 {% block content %}
 
 <table width="50%">
-    {% for field in form %}
         <tr>
-            <th>{{ field.label }}</th>
-            {% for choice in field %}
-                <td>{{ choice }}</td>
-            {% endfor %}
+              <th><button type="button" name="pos_rating" value="Negativ" class="btn btn-primary btn-large btn-block">Negativ</button></th>
+              <th><button type="button" name="pos_rating" value="Neutral" class="btn btn-primary btn-large btn-block">Neutral</button></th>
+              <th><button type="button" name="pos_rating" value="Positiv" class="btn btn-primary btn-large btn-block">Positiv</button></th>
+              <th><button type="button" name="pos_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block"> Nicht zutreffend</button></th>
         </tr>
-    {% endfor %}
+        <tr>
+              <th><button type="button" name="hap_rating" value="Verärgert" class="btn btn-info btn-large btn-block btn-block">Verärgert</button></th>
+              <th><button type="button" name="hap_rating" value="Neutral" class="btn btn-info btn-large btn-block">Neutral</button></th>
+              <th><button type="button" name="hap_rating" value="Zufrieden" class="btn btn-info btn-large btn-block">Zufrieden</button></th>
+              <th><button type="button" name="hap_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block"> Nicht zutreffend</button></th>
+        </tr>
+              <th><button type="button" name="emo_rating" value="Sachlich" class="btn btn-warning btn-large btn-block">Sachlich</button></th>
+              <th> </th>
+              <th><button type="button" name="emo_rating" value="Emotional" class="btn btn-warning btn-large btn-block">Emotional</button></th>
+              <th><button type="button" name="emo_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block"> Nicht zutreffend</button></th>
+        <tr>
+              <th><button type="button" name="opt_rating" value="Pessimistisch" class="btn btn-danger btn-large btn-block">Pessimistisch</button></th>
+              <th><button type="button" name="opt_rating" value="Neutral" class="btn btn-danger btn-large btn-block">Neutral</button></th>
+              <th><button type="button" name="opt_rating" value="Optimistisch" class="btn btn-danger btn-large btn-block">Optimistisch</button></th>
+              <th><button type="button" name="opt_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block"> Nicht zutreffend</button></th>
+        </tr>
+
 </table>
 
 {{ player.tweet |safe  }}
