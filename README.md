@@ -16,24 +16,19 @@ install oTree.
 This repo consists of several apps. There are apps for only one sentiment spanning ten
 rounds, and integrated apps. The integrated apps are:
 
-- <b> rate_tweet_text </b>
+- <b> all_scales </b>
 - <b> rate_tweets </b>
 
-The first only displays only the text to the participant, whereas the latter displays
-the tweet.
+The first displays all possible rating scales to the participant, whereas the latter only displays one scale
 
-### rate_tweet_text
+### all_scales
 
-This app runs 40 rounds and every 10 rounds it changes the choice of answer the
-participant can give. The tweets are distributed to the participants randomly.
+This app runs 40 rounds and every round the participant can answer on all four scales. The tweets are distributed to the participants randomly.
 
 ### rate_tweets
 
 This app runs 40 rounds and every 10 rounds it changes the choice of answer the
 participant can give. The tweets are distributed to the participants randomly.
-
-Since the tweets are displayed as such, it takes a long time until the session can run
-because the tweets have to be retrieved from twitter.
 
 ### Run the survey
 
