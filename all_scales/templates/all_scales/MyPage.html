@@ -35,65 +35,70 @@
 
 <style>
   .active{
-    background-color: green !important;
+    background-color: grey !important;
   }
 
 </style>
 
+{{ form.hap_rating.errors }}
+{{ form.emo_rating.errors }}
+{{ form.opt_rating.errors }}
+{{ form.pos_rating.errors }}
+
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label  class="btn btn-primary btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="pos_rating" value="Negativ">Negativ</input>
   </label>
-  <label  class="btn btn-primary btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="pos_rating" value="Neutral">Neutral</input>
   </label>
-  <label  class="btn btn-primary btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="pos_rating" value="Positiv">Positiv</input>
   </label>
-  <label  class="btn btn-secondary btn-large last">
+  <label  class="btn btn-light btn-large last">
 <input type="radio" name="pos_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
 </div>
 <br/>
 
 <div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
-  <label  class="btn btn-info btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="hap_rating" value="Verärgert">Verärgert</input>
   </label>
-  <label  class="btn btn-info btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="hap_rating" value="Neutral">Neutral</input>
   </label>
-  <label  class="btn btn-info btn-large custom">
+  <label  class="btn btn-light btn-large custom">
 <input type="radio" name="hap_rating" value="Zufrieden">Zufrieden</input>
   </label>
-  <label  class="btn btn-secondary btn-large last">
+  <label  class="btn btn-light btn-large last">
 <input type="radio" name="hap_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
 </div>
 <br/>
 
 <div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
-  <label  class="btn btn-warning btn-large binary">
-<input type="radio" name="emo_rating" value="Sachlich">Sachlich</input>
+  <label  class="btn btn-light btn-large custom">
+<input type="radio" name="opt_rating" value="Pessimistisch">Pessimistisch</input>
   </label>
-  <label  class="btn btn-warning btn-large binary">
-<input type="radio" name="emo_rating" value="Emotional">Emotional</input>
+  <label  class="btn btn-light btn-large custom">
+<input type="radio" name="opt_rating" value="Neutral">Neutral</input>
   </label>
-  <label  class="btn btn-secondary btn-large last">
-<input type="radio" name="emo_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+  <label  class="btn btn-light btn-large custom">
+<input type="radio" name="opt_rating" value="Optimistisch">Optimistisch</input>
+  </label>
+  <label  class="btn btn-light btn-large last">
+<input type="radio" name="opt_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
 </div>
 <br/>
 
 <div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
-  <label  class="btn btn-danger btn-large custom">
-<input type="radio" name="opt_rating" value="Pessimistisch">Pessimistisch</input>
+  <label  class="btn btn-light btn-large binary">
+<input type="radio" name="emo_rating" value="Sachlich">Sachlich</input>
   </label>
-  <label  class="btn btn-danger btn-large custom">
-<input type="radio" name="opt_rating" value="Neutral">Neutral</input>
+  <label  class="btn btn-light btn-large binary">
+<input type="radio" name="emo_rating" value="Emotional">Emotional</input>
   </label>
-  <label  class="btn btn-danger btn-large custom">
-<input type="radio" name="opt_rating" value="Optimistisch">Optimistisch</input>
-  </label>
-  <label  class="btn btn-secondary btn-large last">
-<input type="radio" name="opt_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+  <label  class="btn btn-light btn-large last">
+<input type="radio" name="emo_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
 </div>
 <br/>
 
