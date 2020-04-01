@@ -8,30 +8,45 @@
 
 {% block content %}
 
+
+<script>
+  $("button").click(function(){
+    $("button").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>
+
+<style>
+  .active{
+    background-color: green !important;
+  }
+
+</style>
+
 <table width="50%">
          <tr>
-              <th><a href="#" type="button" name="pos_rating" value="Negativ" class="btn btn-primary btn-large btn-block" role="button" aria-pressed="true">Negativ</a></th>
-              <th><a href="#" type="button" name="pos_rating" value="Neutral" class="btn btn-primary btn-large btn-block" role="button" aria-pressed="true">Neutral</a></th>
-              <th><a href="#" type="button" name="pos_rating" value="Positiv" class="btn btn-primary btn-large btn-block" role="button" aria-pressed="true">Positiv</a></th>
-              <th><a href="#" type="button" name="pos_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" role="button" aria-pressed="true"> Nicht zutreffend</a></th>
+              <th><a type="button" name="pos_rating" value="Negativ" class="btn btn-primary btn-large btn-block" data-toggle="button">Negativ</a></th>
+              <th><a type="button" name="pos_rating" value="Neutral" class="btn btn-primary btn-large btn-block" data-toggle="button">Neutral</a></th>
+              <th><a type="button" name="pos_rating" value="Positiv" class="btn btn-primary btn-large btn-block" data-toggle="button">Positiv</a></th>
+              <th><a type="button" name="pos_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
          </tr>
          <tr>
-              <th><a href="#" type="button" name="hap_rating" value="Verärgert" class="btn btn-info btn-large btn-block btn-block" role="button" aria-pressed="true">Verärgert</a></th>
-              <th><a href="#" type="button" name="hap_rating" value="Neutral" class="btn btn-info btn-large btn-block" role="button" aria-pressed="true">Neutral</a></th>
-              <th><a href="#" type="button" name="hap_rating" value="Zufrieden" class="btn btn-info btn-large btn-block" role="button" aria-pressed="true">Zufrieden</a></th>
-              <th><a href="#" type="button" name="hap_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" role="button" aria-pressed="true"> Nicht zutreffend</a></th>
+              <th><a type="button" name="hap_rating" value="Verärgert" class="btn btn-info btn-large btn-block btn-block" data-toggle="button">Verärgert</a></th>
+              <th><a type="button" name="hap_rating" value="Neutral" class="btn btn-info btn-large btn-block" data-toggle="button">Neutral</a></th>
+              <th><a type="button" name="hap_rating" value="Zufrieden" class="btn btn-info btn-large btn-block" data-toggle="button">Zufrieden</a></th>
+              <th><a type="button" name="hap_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
         </tr>
         <tr>
-              <th><a href="#" type="button" name="emo_rating" value="Sachlich" class="btn btn-warning btn-large btn-block" role="button" aria-pressed="true">Sachlich</a></th>
+              <th><a type="button" name="emo_rating" value="Sachlich" class="btn btn-warning btn-large btn-block" data-toggle="button">Sachlich</a></th>
               <th> </th>
-              <th><a href="#" type="button" name="emo_rating" value="Emotional" class="btn btn-warning btn-large btn-block" role="button" aria-pressed="true">Emotional</a></th>
-              <th><a href="#" type="button" name="emo_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" role="button" aria-pressed="true"> Nicht zutreffend</a></th>
+              <th><a type="button" name="emo_rating" value="Emotional" class="btn btn-warning btn-large btn-block" data-toggle="button">Emotional</a></th>
+              <th><a type="button" name="emo_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
         </tr>
          <tr>
-              <th><a href="#" type="button" name="opt_rating" value="Pessimistisch" class="btn btn-danger btn-large btn-block" role="button" aria-pressed="true">Pessimistisch</a></th>
-              <th><a href="#" type="button" name="opt_rating" value="Neutral" class="btn btn-danger btn-large btn-block" role="button" aria-pressed="true">Neutral</a></th>
-              <th><a href="#" type="button" name="opt_rating" value="Optimistisch" class="btn btn-danger btn-large btn-block" role="button" aria-pressed="true">Optimistisch</a></th>
-              <th><a href="#" type="button" name="opt_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" role="button" aria-pressed="true"> Nicht zutreffend</a></th>
+              <th><a type="button" name="opt_rating" value="Pessimistisch" class="btn btn-danger btn-large btn-block" data-toggle="button">Pessimistisch</a></th>
+              <th><a type="button" name="opt_rating" value="Neutral" class="btn btn-danger btn-large btn-block" data-toggle="button">Neutral</a></th>
+              <th><a type="button" name="opt_rating" value="Optimistisch" class="btn btn-danger btn-large btn-block" data-toggle="button">Optimistisch</a></th>
+              <th><a type="button" name="opt_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
          </tr>
 </table>
 
