@@ -52,7 +52,7 @@ class Constants(BaseConstants):
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"],["Nicht zutreffend", "Nicht zutreffend"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"],["Nicht zutreffend", "Nicht zutreffend"]]
     emotional = [["Sachlich","Sachlich"],["Emotional","Emotional"],["Nicht zutreffend", "Nicht zutreffend"]]
-    choices = [['positive'], ['optimistic'], ['happiness'], ['emotional'],["Nicht zutreffend", "Nicht zutreffend"]]
+    choices = [['positive'], ['optimistic'], ['happiness'], ['emotional']]
 
     # Treatments as list of list.
     treatment_cycles = []
