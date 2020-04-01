@@ -8,7 +8,6 @@
 
 {% block content %}
 
-
 <script>
   $("button").click(function(){
     $("button").removeClass("active");
@@ -17,18 +16,94 @@
 </script>
 
 <style>
+    .binary {
+    width: 180px !important;
+}
+</style>
+
+<style>
+    .custom {
+    width: 120px !important;
+}
+</style>
+
+<style>
+    .last {
+    width: 150px !important;
+}
+</style>
+
+<style>
   .active{
     background-color: green !important;
   }
 
 </style>
 
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label  class="btn btn-primary btn-large custom">
+<input type="radio" name="pos_rating" value="Negativ">Negativ</input>
+  </label>
+  <label  class="btn btn-primary btn-large custom">
+<input type="radio" name="pos_rating" value="Neutral">Neutral</input>
+  </label>
+  <label  class="btn btn-primary btn-large custom">
+<input type="radio" name="pos_rating" value="Positiv">Positiv</input>
+  </label>
+  <label  class="btn btn-secondary btn-large last">
+<input type="radio" name="pos_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+</div>
+<br/>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
+  <label  class="btn btn-info btn-large custom">
+<input type="radio" name="hap_rating" value="Verärgert">Verärgert</input>
+  </label>
+  <label  class="btn btn-info btn-large custom">
+<input type="radio" name="hap_rating" value="Neutral">Neutral</input>
+  </label>
+  <label  class="btn btn-info btn-large custom">
+<input type="radio" name="hap_rating" value="Zufrieden">Zufrieden</input>
+  </label>
+  <label  class="btn btn-secondary btn-large last">
+<input type="radio" name="hap_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+</div>
+<br/>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
+  <label  class="btn btn-warning btn-large binary">
+<input type="radio" name="emo_rating" value="Sachlich">Sachlich</input>
+  </label>
+  <label  class="btn btn-warning btn-large binary">
+<input type="radio" name="emo_rating" value="Emotional">Emotional</input>
+  </label>
+  <label  class="btn btn-secondary btn-large last">
+<input type="radio" name="emo_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+</div>
+<br/>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons" width="50%">
+  <label  class="btn btn-danger btn-large custom">
+<input type="radio" name="opt_rating" value="Pessimistisch">Pessimistisch</input>
+  </label>
+  <label  class="btn btn-danger btn-large custom">
+<input type="radio" name="opt_rating" value="Neutral">Neutral</input>
+  </label>
+  <label  class="btn btn-danger btn-large custom">
+<input type="radio" name="opt_rating" value="Optimistisch">Optimistisch</input>
+  </label>
+  <label  class="btn btn-secondary btn-large last">
+<input type="radio" name="opt_rating" value="Nicht zutreffend"> Nicht zutreffend</input>
+</div>
+<br/>
+
+<!--
 <table width="50%">
          <tr>
-              <th><a type="button" name="pos_rating" value="Negativ" class="btn btn-primary btn-large btn-block" data-toggle="button">Negativ</a></th>
-              <th><a type="button" name="pos_rating" value="Neutral" class="btn btn-primary btn-large btn-block" data-toggle="button">Neutral</a></th>
-              <th><a type="button" name="pos_rating" value="Positiv" class="btn btn-primary btn-large btn-block" data-toggle="button">Positiv</a></th>
-              <th><a type="button" name="pos_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
+              <th><button type="button" name="pos_rating" value="Negativ" class="btn btn-primary btn-large btn-block" data-toggle="button">Negativ</button></th>
+              <th><button type="button" name="pos_rating" value="Neutral" class="btn btn-primary btn-large btn-block" data-toggle="button">Neutral</button></th>
+              <th><button type="button" name="pos_rating" value="Positiv" class="btn btn-primary btn-large btn-block" data-toggle="button">Positiv</button></th>
+              <th><button type="button" name="pos_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</button></th>
          </tr>
          <tr>
               <th><a type="button" name="hap_rating" value="Verärgert" class="btn btn-info btn-large btn-block btn-block" data-toggle="button">Verärgert</a></th>
@@ -49,7 +124,7 @@
               <th><a type="button" name="opt_rating" value="Nicht zutreffend" class="btn btn-default btn-large btn-block" data-toggle="button"> Nicht zutreffend</a></th>
          </tr>
 </table>
-
+-->
 {{ player.tweet |safe  }}
 
     {% next_button %}
