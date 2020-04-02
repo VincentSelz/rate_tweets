@@ -13,14 +13,20 @@ install oTree.
 
 ## General Structure
 
-This repo consists of several apps. There are apps for only one sentiment spanning ten
-rounds, and integrated apps. The integrated apps are:
+This repo consists of two apps:
 
 - <b> all_scales </b>
 - <b> rate_tweets </b>
-- <b> rate_tweets_with_bots </b>
 
-The first displays all possible rating scales to the participant, whereas the latter only displays one scale
+The first displays all possible rating scales to the participant, whereas the latter only displays one scale at a time.
+
+To run the surveys one has to navigate to the parent folder of the project. Then, run:
+
+```bash
+$ otree devserver
+```
+
+Follow the further instructions to get to the sessions.
 
 ### all_scales
 
@@ -31,19 +37,20 @@ This app runs 40 rounds and every round the participant can answer on all four s
 This app runs 40 rounds and every 10 rounds it changes the choice of answer the
 participant can give. The tweets are distributed to the participants randomly.
 
-### rate_tweets_with_bots
+### bots
 
-When you are mainly interested in managing the survey data, I encourage this version, where bots are answering the survey.
-
-## Run the survey
-
-To run the survey one has to navigate to the parent folder of the project. Then, run:
+Both apps have bots configured who randomly choose their answers.
+Run them from the command line with:
 
 ```bash
-$ otree devserver
+$ otree test appname
 ```
 
-Follow the further instructions to get to the sessions.
+When you are interested in the produced data use:
+
+```bash
+$ otree test appname --export=out_data
+```
 
 ## Resources
 

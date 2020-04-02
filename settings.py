@@ -17,24 +17,10 @@ SESSION_CONFIGS = [
         num_demo_rounds=40,
     ),
     dict(
-        name='rate_tweets_with_bots',
-        num_demo_participants=4,
-        app_sequence=['rate_tweets'],
-        num_demo_rounds=40,
-        use_browser_bots=True,
-    ),
-    dict(
         name='all_scales',
         num_demo_participants=4,
         app_sequence=['all_scales'],
         num_demo_rounds=40,
-    ),
-    dict(
-        name='all_scales_with_bots',
-        num_demo_participants=4,
-        app_sequence=['all_scales'],
-        num_demo_rounds=40,
-        use_browser_bots=True,
     ),
 ]
 
@@ -47,11 +33,34 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
-ROOMS = []
+ROOMS = [
+    dict(
+        name='tweet_survey_demo',
+        display_name='Tweet Survey Demo',
+        # without label there is only one url (no prob since everybody can play as often as they want)
+        #participant_label_file='_rooms/tweet_survey.txt',
+        #use_secure_urls=True #adds an hash to the url
+    )]
+
+# AUTH_LEVEL:
+# this setting controls which parts of your site are freely accessible,
+# and which are password protected:
+# - If it's not set (the default), then the whole site is freely accessible.
+# - If you are launching a study and want visitors to only be able to
+#   play your app if you provided them with a start link, set it to STUDY.
+# - If you would like to put your site online in public demo mode where
+#   anybody can play a demo version of your game, but not access the rest
+#   of the admin interface, set it to DEMO.
+
+# for flexibility, you can set it in the environment variable OTREE_AUTH_LEVEL
+AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+
+# Consider '', None, and '0' to be empty/false
+DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 
 DEMO_PAGE_INTRO_HTML = """ """
 
