@@ -71,7 +71,6 @@ class Subsession(BaseSubsession):
         tweet_cycle = itertools.cycle(shuffled_tweets)
         sample = ''
         try:
-            #sample = Constants.tweets.pop()
             sample = next(tweet_cycle)
         except KeyError:
             print('No more tweets to distribute.')
