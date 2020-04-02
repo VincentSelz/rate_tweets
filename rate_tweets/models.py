@@ -35,8 +35,13 @@ def extend_treatment(list_of_lists):
         treat.extend(10*list)
     return treat
 
-def get_tweets():
-    with open('data/html_data.csv', newline='') as f:
+def get_tweets(datafile):
+    """Reads in datafile with html and returns them as a list.
+
+    Args: datafile in folder data as string.
+    Out: list of htmls.
+    """
+    with open('data/{}'.format(datafile), newline='') as f:
        reader = pd.read_csv(f)
        tweets = reader['0'].tolist()
        return tweets
@@ -63,7 +68,7 @@ class Constants(BaseConstants):
         # Turns treatment into cycles and stores them in a list.
         treatment_cycle = itertools.cycle(real_treatments)
         treatment_cycles.append(treatment_cycle)
-    tweets = get_tweets()
+    tweets = get_tweets("html_test_data.csv")
 
 class Subsession(BaseSubsession):
     def set_sample(self):

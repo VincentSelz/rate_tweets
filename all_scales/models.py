@@ -36,8 +36,13 @@ def extend_treatment(list_of_lists):
         treat.extend(10*list)
     return treat
 
-def get_tweets():
-    with open('data/html_data.csv', newline='') as f:
+def get_tweets(datafile):
+    """Reads in datafile with html and returns them as a list.
+
+    Args: datafile in folder data as string.
+    Out: list of htmls.
+    """
+    with open('data/{}'.format(datafile), newline='') as f:
        reader = pd.read_csv(f)
        tweets = reader['0'].tolist()
        return tweets
@@ -53,7 +58,9 @@ class Constants(BaseConstants):
     optimistic = [["Pessimistisch","Pessimistisch"],["Neutral","Neutral"],["Optimistisch","Optimistisch"],["Nicht zutreffend", "Nicht zutreffend"]]
     happiness = [["Verärgert","Verärgert"],["Neutral","Neutral"],["Zufrieden","Zufrieden"],["Nicht zutreffend", "Nicht zutreffend"]]
     emotional = [["Sachlich","Sachlich"],["Emotional","Emotional"],["Nicht zutreffend", "Nicht zutreffend"]]
-    tweets = get_tweets()
+
+    # Get tweets from relevant data folder.
+    tweets = get_tweets("html_test_data.csv")
 
 class Subsession(BaseSubsession):
     def set_sample(self):

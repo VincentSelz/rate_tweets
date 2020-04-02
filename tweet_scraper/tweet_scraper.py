@@ -27,12 +27,16 @@ def get_embed_tweet(url):
     return data['html']
 
 
-def get_df_of_tweets():
-    with open('data/test_data.csv', newline='') as f:
+def get_df_of_tweets(datafile):
+    """Reads in twitter urls and gives out html to embeded tweets.
+
+    Args: CSV-file name in folder original_data as a string.
+    Out: CSV-file named as html_CSV-file in folder data.
+    Notes: Reads in CSV-file, converts into DataFrame singles out urls and request
+    embedded tweets from publish twitter, then saves them as html in a new CSV-file.
+    """
+    with open('original_data/{}'.format(datafile), newline='') as f:
        reader = pd.read_csv(f)
-       # this is the whole list (and takes ages)
-       #urls = reader.tweet_url.tolist()
-       # to test a short one, this does the trick
        urls = reader.tweet_url.tolist()
        tweets = []
        for tweet in urls:
@@ -43,6 +47,6 @@ def get_df_of_tweets():
                print('this tweet cannot be displayed.')
                pass
        df = pd.DataFrame(tweets)
-       return df.to_csv('data/html_data.csv', index=False)
+       return df.to_csv('data/html_{}'.format(datafile), index=False)
 
-get_df_of_tweets()
+get_df_of_tweets("test_data.csv")
