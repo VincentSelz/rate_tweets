@@ -29,6 +29,13 @@ SESSION_CONFIGS = [
         app_sequence=['all_scales'],
         num_demo_rounds=40,
     ),
+    dict(
+        name='all_scales_with_bots',
+        num_demo_participants=4,
+        app_sequence=['all_scales'],
+        num_demo_rounds=40,
+        use_browser_bots=True,
+    ),
 ]
 
 
