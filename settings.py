@@ -22,12 +22,24 @@ SESSION_CONFIGS = [
         app_sequence=['all_scales'],
         num_demo_rounds=40,
     ),
+    dict(
+        name='rate_ratings',
+        num_demo_participants=4,
+        app_sequence=['rate_ratings'],
+        num_demo_rounds=40,
+    ),
+    dict(
+        name='curated_rate_tweets',
+        num_demo_participants=4,
+        app_sequence=['curated_rate_tweets'],
+        num_demo_rounds=40,
+    ),
 ]
 
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'de'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
@@ -58,9 +70,6 @@ AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
-
-# Consider '', None, and '0' to be empty/false
-DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 
 DEMO_PAGE_INTRO_HTML = """ """
 
