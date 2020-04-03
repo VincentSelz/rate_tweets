@@ -74,8 +74,10 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        count = 0
         for p in self.get_players():
             p.tweet = next(Constants.tweet_cycles[count])
+            count += 1
 
 
 class Group(BaseGroup):
