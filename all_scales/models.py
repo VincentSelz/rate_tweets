@@ -61,23 +61,21 @@ class Constants(BaseConstants):
 
     # Get tweets from relevant data folder.
     tweets = get_tweets("html_test_data.csv")
+    tweet_cycles = []
+    for i in range(num_participants):
+        # Makes personalized random cycle of tweets
+        shuffled_tweets = random.sample(tweets, len(tweets))
+        # Turns tweets into cycles and stores them in a list.
+        tweet_cycle = itertools.cycle(shuffled_tweets)
+        tweet_cycles.append(tweet_cycle)
+
 
 class Subsession(BaseSubsession):
-    def set_sample(self):
-        shuffled_tweets = random.sample(Constants.tweets, len(Constants.tweets))
-        tweet_cycle = itertools.cycle(shuffled_tweets)
-        sample = ''
-        try:
-            #sample = Constants.tweets.pop()
-            sample = next(tweet_cycle)
-        except KeyError:
-            print('No more tweets to distribute.')
-        return str(sample)
 
     def creating_session(self):
         count = 0
         for p in self.get_players():
-            p.tweet = self.set_sample()
+            p.tweet = next(Constants.tweet_cycles[count])
             count += 1
 
 class Group(BaseGroup):
