@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Bitte ordnen Sie diesen Tweet den geeigneten Skalen zu.
+{% endblock %}
+
+{% block content %}
+
+<script>
+  $("button").click(function(){
+    $("button").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>
+
+<style>
+  .active{
+    background-color: grey !important;
+  }
+</style>
+
+    <button type="button" name="pos_scale" value="Negativ/Positiv" class="btn btn-primary btn-large" data-toggle="button">Negativ/Positiv</button>
+    <button type="button" name="hap_scale" value="Verärgert/Zufrieden" class="btn btn-primary btn-large" data-toggle="button">Verärgert/Zufrieden</button>
+    <button type="button" name="emo_scale" value="Sachlich/Emotional" class="btn btn-primary btn-large" data-toggle="button">Sachlich/Emotional</button>
+    <button type="button" name="opt_scale" value="Pessimistisch/Optimistisch" class="btn btn-primary" data-toggle="button">Pessimistisch/Optimistisch</button>
+    <button type="button" name="not_applicable" value="Nicht zutreffend" class="btn btn-primary" data-toggle="button"> Nicht zutreffend</button>
+
+    {{ player.tweet |safe  }}
+
+{{ form.opt_scale.errors }}
+{{ form.emo_scale.errors }}
+{{ form.hap_scale.errors }}
+{{ form.pos_scale.errors }}
+{{ form.not_applicable.errors }}
+
+{% next_button %}
+
+{% endblock %}
