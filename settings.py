@@ -23,15 +23,15 @@ SESSION_CONFIGS = [
         num_demo_rounds=40,
     ),
     dict(
-        name='rate_ratings',
+        name='scale_after_scale',
         num_demo_participants=4,
-        app_sequence=['rate_ratings'],
+        app_sequence=['scale_after_scale'],
         num_demo_rounds=40,
     ),
     dict(
-        name='curated_rate_tweets',
+        name='scale_after_scale_down',
         num_demo_participants=4,
-        app_sequence=['curated_rate_tweets'],
+        app_sequence=['scale_after_scale_down'],
         num_demo_rounds=40,
     ),
 ]

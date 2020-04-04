@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Bitte bewerten Sie diesen Tweet.
+{% endblock %}
+
+{% block content %}
+
+    {{ player.tweet |safe  }}
+
+{% if player.choice4 == "positive" %}
+<a
+<div>
+    <button name="pos_rating" value="Negativ" class="btn btn-primary btn-large">Negativ</button>
+    <button name="pos_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="pos_rating" value="Positiv" class="btn btn-primary btn-large">Positiv</button>
+    <button name="pos_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+</div>
+
+{% elif player.choice4 == "happiness" %}
+<a
+<div>
+    <button name="hap_rating" value="Verärgert" class="btn btn-primary btn-large">Verärgert</button>
+    <button name="hap_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="hap_rating" value="Zufrieden" class="btn btn-primary btn-large">Zufrieden</button>
+    <button name="hap_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+</div>
+
+{% elif player.choice4 == "emotional" %}
+<a
+<div>
+    <button name="emo_rating" value="Sachlich" class="btn btn-primary btn-large">Sachlich</button>
+    <button name="emo_rating" value="Emotional" class="btn btn-primary btn-large">Emotional</button>
+    <button name="emo_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+</div>
+
+{% elif player.choice4 == "optimistic"  %}
+<a
+<div>
+    <button name="opt_rating" value="Pessimistisch" class="btn btn-primary btn-large">Pessimistisch</button>
+    <button name="opt_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
+    <button name="opt_rating" value="Optimistisch" class="btn btn-primary btn-large">Optimistisch</button>
+    <button name="opt_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
