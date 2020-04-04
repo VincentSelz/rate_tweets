@@ -49,7 +49,7 @@ def get_tweets(datafile):
 class Constants(BaseConstants):
     name_in_url = 'scale_after_scale_down'
     players_per_group = None
-    num_participants = 4
+    num_participants = 20
     num_rounds = 40
 
     #Choices for different StringFields

@@ -11,22 +11,17 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='rate_tweets',
-        num_demo_participants=4,
-        app_sequence=['rate_tweets'],
-        num_demo_rounds=40,
-    ),
-    dict(
-        name='all_scales',
-        num_demo_participants=4,
-        app_sequence=['all_scales'],
-        num_demo_rounds=40,
-    ),
-    dict(
         name='scale_after_scale',
         num_demo_participants=4,
         app_sequence=['scale_after_scale'],
         num_demo_rounds=40,
+    ),
+    dict(
+        name='scale_after_scale_bot',
+        num_demo_participants=4,
+        app_sequence=['scale_after_scale'],
+        num_demo_rounds=40,
+        use_browser_bots=True
     ),
     dict(
         name='scale_after_scale_down',
@@ -47,8 +42,15 @@ USE_POINTS = True
 
 ROOMS = [
     dict(
-        name='tweet_survey_demo',
-        display_name='Tweet Survey Demo',
+        name='tweet_survey_scale_up_demo',
+        display_name='Tweet Survey Demo Scale Up',
+        # without label there is only one url (no prob since everybody can play as often as they want)
+        #participant_label_file='_rooms/tweet_survey.txt',
+        #use_secure_urls=True #adds an hash to the url
+    ),
+    dict(
+        name='tweet_survey_scale_down_demo',
+        display_name='Tweet Survey Demo Scale Down',
         # without label there is only one url (no prob since everybody can play as often as they want)
         #participant_label_file='_rooms/tweet_survey.txt',
         #use_secure_urls=True #adds an hash to the url
