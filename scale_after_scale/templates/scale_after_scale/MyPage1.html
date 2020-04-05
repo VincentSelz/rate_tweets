@@ -1,5 +1,9 @@
+<head>
+  <title>Bitte bewerten Sie diesen Tweet. </title>
+</head>
 {% extends "global/Page.html" %}
 {% load otree static %}
+
 {% block title %}
 <center>
   <div class="progress" style="height: 20px;">
@@ -12,6 +16,7 @@
 
 {% block content %}
 {{ form.errors }}
+
 <style>
   mt-1 {
     margin-left: ($spacer * .25) !important;;
