@@ -2,49 +2,70 @@
 {% load otree static %}
 
 {% block title %}
-Bitte bewerten Sie diesen Tweet.
+<center>
+  <div class="progress" style="height: 20px;">
+    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="75"
+    aria-valuemin="0" aria-valuemax="100" style="width:75%">
+    </div>
+  </div
+</center>
 {% endblock %}
 
 {% block content %}
+<style>
+  mt-1 {
+    margin-left: ($spacer * .25) !important;;
+  }
+</style>
 
+<center>
 {% if player.choice4 == "positive" %}
 <a
 <div>
-    <button name="pos_rating" value="Negativ" class="btn btn-primary btn-large">Negativ</button>
-    <button name="pos_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
-    <button name="pos_rating" value="Positiv" class="btn btn-primary btn-large">Positiv</button>
-    <button name="pos_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+    <button name="pos_rating" value="Negativ" class="btn btn-primary mt-1">Negativ</button>
+    <button name="pos_rating" value="Neutral" class="btn btn-primary mt-1">Neutral</button>
+    <button name="pos_rating" value="Positiv" class="btn btn-primary mt-1">Positiv</button>
+    <button name="pos_rating" value="Nicht zutreffend" class="btn btn-secondary mt-1"> Nicht zutreffend</button>
 </div>
 
 {% elif player.choice4 == "happiness" %}
 <a
 <div>
-    <button name="hap_rating" value="Verärgert" class="btn btn-primary btn-large">Verärgert</button>
-    <button name="hap_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
-    <button name="hap_rating" value="Zufrieden" class="btn btn-primary btn-large">Zufrieden</button>
-    <button name="hap_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+    <button name="hap_rating" value="Verärgert" class="btn btn-primary mt-1">Verärgert</button>
+    <button name="hap_rating" value="Neutral" class="btn btn-primary mt-1">Neutral</button>
+    <button name="hap_rating" value="Zufrieden" class="btn btn-primary mt-1">Zufrieden</button>
+    <button name="hap_rating" value="Nicht zutreffend" class="btn btn-secondary mt-1"> Nicht zutreffend</button>
 </div>
 
 {% elif player.choice4 == "emotional" %}
 <a
 <div>
-    <button name="emo_rating" value="Sachlich" class="btn btn-primary btn-large">Sachlich</button>
-    <button name="emo_rating" value="Emotional" class="btn btn-primary btn-large">Emotional</button>
-    <button name="emo_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+    <button name="emo_rating" value="Sachlich" class="btn btn-primary mt-1">Sachlich</button>
+    <button name="emo_rating" value="Emotional" class="btn btn-primary mt-1">Emotional</button>
+    <button name="emo_rating" value="Nicht zutreffend" class="btn btn-secondary mt-1"> Nicht zutreffend</button>
 </div>
 
 {% elif player.choice4 == "optimistic"  %}
 <a
 <div>
-    <button name="opt_rating" value="Pessimistisch" class="btn btn-primary btn-large">Pessimistisch</button>
-    <button name="opt_rating" value="Neutral" class="btn btn-primary btn-large">Neutral</button>
-    <button name="opt_rating" value="Optimistisch" class="btn btn-primary btn-large">Optimistisch</button>
-    <button name="opt_rating" value="Nicht zutreffend" class="btn btn-secondary"> Nicht zutreffend</button>
+    <button name="opt_rating" value="Pessimistisch" class="btn btn-primary mt-1">Pessimistisch</button>
+    <button name="opt_rating" value="Neutral" class="btn btn-primary mt-1">Neutral</button>
+    <button name="opt_rating" value="Optimistisch" class="btn btn-primary mt-1">Optimistisch</button>
+    <button name="opt_rating" value="Nicht zutreffend" class="btn btn-secondary mt-1"> Nicht zutreffend</button>
 
 </div>
 
 {% endif %}
+</center>
 
+<style>
+  .embed-twitter {
+    width: 75% !important;
+}
+</style>
+<center>
     {{ player.tweet |safe  }}
+<a href="https://forms.gle/Hv2yEDDqdNKwWpKD6" target="_plank" class="btn btn-secondary" role="button">Feedback</a>
+</center>
 
 {% endblock %}
