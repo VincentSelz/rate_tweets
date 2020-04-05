@@ -22,13 +22,7 @@ SESSION_CONFIGS = [
         app_sequence=['scale_after_scale'],
         num_demo_rounds=40,
         use_browser_bots=True
-    ),
-    dict(
-        name='scale_after_scale_down',
-        num_demo_participants=4,
-        app_sequence=['scale_after_scale_down'],
-        num_demo_rounds=40,
-    ),
+    )
 ]
 
 
@@ -42,19 +36,13 @@ USE_POINTS = True
 
 ROOMS = [
     dict(
-        name='tweet_survey_scale_up_demo',
-        display_name='Tweet Survey Demo Scale Up',
+        name='tweet_survey_demo',
+        display_name='Tweet Survey Demo',
         # without label there is only one url (no prob since everybody can play as often as they want)
         #participant_label_file='_rooms/tweet_survey.txt',
         #use_secure_urls=True #adds an hash to the url
-    ),
-    dict(
-        name='tweet_survey_scale_down_demo',
-        display_name='Tweet Survey Demo Scale Down',
-        # without label there is only one url (no prob since everybody can play as often as they want)
-        #participant_label_file='_rooms/tweet_survey.txt',
-        #use_secure_urls=True #adds an hash to the url
-    )]
+    )
+]
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,

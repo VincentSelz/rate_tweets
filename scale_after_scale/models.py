@@ -49,7 +49,7 @@ def get_tweets(datafile):
 class Constants(BaseConstants):
     name_in_url = 'scale_after_scale'
     players_per_group = None
-    num_participants = 20
+    num_participants = 100
     num_rounds = 40
 
     #Choices for different StringFields
@@ -91,6 +91,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    feedback = models.StringField(blank=True)
     tweet = models.StringField()
     choice1 = models.StringField()
     choice2 = models.StringField()
