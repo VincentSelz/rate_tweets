@@ -37,11 +37,11 @@ def get_df_of_tweets(datafile):
     """
     with open('original_data/{}'.format(datafile), newline='') as f:
        reader = pd.read_csv(f)
-       urls = reader.tweet_url.tolist()
+       urls = reader.permalink.tolist()
        tweets = []
        for tweet in urls:
            try:
-               tweets.append(get_embed_tweet('https://twitter.com' + tweet))
+               tweets.append(get_embed_tweet(tweet))
                #time.sleep(0.1)  #wait to not get banned
            except Exception:
                print('this tweet cannot be displayed.')
@@ -49,4 +49,4 @@ def get_df_of_tweets(datafile):
        df = pd.DataFrame(tweets)
        return df.to_csv('data/_html'+str(len(tweets))+'_{}'.format(datafile), index=False)
 
-get_df_of_tweets("test_data.csv")
+get_df_of_tweets("selected_tweets_for_labeling.csv")
