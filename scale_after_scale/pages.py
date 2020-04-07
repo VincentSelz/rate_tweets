@@ -7,7 +7,7 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class Results(Page):
+class GIF(Page):
     def is_displayed(self):
         return self.round_number == 1
 
@@ -68,4 +68,4 @@ class ExitPage(Page):
         return self.round_number == 10 or self.round_number == 20 or self.round_number == 30
 
 
-page_sequence = [Introduction, Results, MyPage1, MyPage2, MyPage3, MyPage4, ExitPage]
+page_sequence = [Introduction, GIF, MyPage1, MyPage2, MyPage3, MyPage4, ExitPage]

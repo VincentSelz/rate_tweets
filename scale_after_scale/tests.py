@@ -10,6 +10,8 @@ class PlayerBot(Bot):
     def play_round(self):
         if self.round_number ==1:
             yield pages.Introduction
+        if self.round_number ==1:
+            yield pages.GIF
         if self.player.choice1 == 'positive':
             yield pages.MyPage1, dict(pos_rating=random.choice(["Negativ","Neutral","Positiv","Nicht zutreffend"]))
         if self.player.choice1 == 'emotional':
