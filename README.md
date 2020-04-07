@@ -13,12 +13,8 @@ install oTree.
 
 ## General Structure
 
-This repo consists of two apps:
+This repo consists of several apps, the furthest developed is scale_after_scale. It displays one scale after another for one tweet and repeats that process 40 times.
 
-- <b> all_scales </b>
-- <b> rate_tweets </b>
-
-The first displays all possible rating scales to the participant, whereas the latter only displays one scale at a time.
 
 To run the surveys one has to navigate to the parent folder of the project. Then, run:
 
@@ -28,18 +24,9 @@ $ otree devserver
 
 Follow the further instructions to get to the sessions.
 
-### all_scales
-
-This app runs 40 rounds and every round the participant can answer on all four scales. The tweets are distributed to the participants randomly.
-
-### rate_tweets
-
-This app runs 40 rounds and every 10 rounds it changes the choice of answer the
-participant can give. The tweets are distributed to the participants randomly.
-
 ### bots
 
-Both apps have bots configured who randomly choose their answers.
+The apps have bots configured who randomly choose their answers.
 Run them from the command line with:
 
 ```bash
