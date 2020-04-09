@@ -41,6 +41,13 @@ ROOMS = [
         # without label there is only one url (no prob since everybody can play as often as they want)
         #participant_label_file='_rooms/tweet_survey.txt',
         #use_secure_urls=True #adds an hash to the url
+    ),
+    dict(
+        name='tweet_survey',
+        display_name='Tweet Survey',
+        # without label there is only one url (no prob since everybody can play as often as they want)
+        #participant_label_file='_rooms/tweet_survey.txt',
+        #use_secure_urls=True #adds an hash to the url
     )
 ]
 
