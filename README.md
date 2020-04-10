@@ -1,7 +1,5 @@
 # Survey to rate tweets
 
-<iframe src="https://giphy.com/embed/S8xctlEGFHwI4loppT" width="360" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
 ## Getting Started
 
 Install the environment with conda and
