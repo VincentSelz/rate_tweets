@@ -1,5 +1,7 @@
 # Survey to rate tweets
 
+![](https://media.giphy.com/media/S8xctlEGFHwI4loppT/giphy.gif) 
+
 ## Getting Started
 
 Install the environment with conda and
