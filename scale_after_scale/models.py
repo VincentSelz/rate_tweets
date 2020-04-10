@@ -61,7 +61,7 @@ class Constants(BaseConstants):
     choices = ['positive', 'optimistic', 'happiness', 'emotional']
 
 
-    tweets = get_tweets("_html997_selected_tweets_for_labeling.csv")
+    tweets = get_tweets("html994_selected_tweets_for_labeling.csv")
 
     # Treatments as list of list.
     treatment_cycles = []

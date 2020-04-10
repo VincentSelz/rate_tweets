@@ -49,4 +49,4 @@ def get_df_of_tweets(datafile):
        df = pd.DataFrame(tweets)
        return df.to_csv('data/html'+str(len(tweets))+'_{}'.format(datafile), index=False)
 
-get_df_of_tweets("selected_tweets_for_labeling_en.csv")
+get_df_of_tweets("selected_tweets_for_labeling.csv")
