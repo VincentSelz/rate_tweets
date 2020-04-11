@@ -1,6 +1,6 @@
 # Survey to rate tweets
 
-![](https://media.giphy.com/media/S8xctlEGFHwI4loppT/giphy.gif) 
+![](https://media.giphy.com/media/l4Xicqrij80QCgozCW/200w_d.gif) 
 
 ## Getting Started
 
