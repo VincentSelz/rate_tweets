@@ -22,7 +22,7 @@ SESSION_CONFIGS = [
         app_sequence=['scale_after_scale'],
         num_demo_rounds=40,
         use_browser_bots=True
-    )
+    ),
 ]
 
 
@@ -48,7 +48,11 @@ ROOMS = [
         # without label there is only one url (no prob since everybody can play as often as they want)
         #participant_label_file='_rooms/tweet_survey.txt',
         #use_secure_urls=True #adds an hash to the url
-    )
+    ),
+    dict(
+        name='labeling_game',
+        display_name='Labeling Game'
+    ),
 ]
 
 # AUTH_LEVEL:
