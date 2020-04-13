@@ -14,13 +14,13 @@ SESSION_CONFIGS = [
         name='scale_after_scale',
         num_demo_participants=4,
         app_sequence=['scale_after_scale'],
-        num_demo_rounds=40,
+        num_demo_rounds=20,
     ),
     dict(
         name='scale_after_scale_bot',
         num_demo_participants=4,
         app_sequence=['scale_after_scale'],
-        num_demo_rounds=40,
+        num_demo_rounds=20,
         use_browser_bots=True
     ),
 ]

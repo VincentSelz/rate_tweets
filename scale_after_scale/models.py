@@ -50,7 +50,7 @@ class Constants(BaseConstants):
     name_in_url = 'scale_after_scale'
     players_per_group = None
     num_participants = 100
-    num_rounds = 40
+    num_rounds = 20
 
     #Choices for different StringFields
     positive =[["Negativ","Negativ"],["Neutral","Neutral"],["Positiv","Positiv"],["Nicht zutreffend", "Nicht zutreffend"]]
