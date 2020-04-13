@@ -7,21 +7,7 @@
 
 {% block content %}
 
-   <p>Sie können so lange wie Sie möchten fortfahren.</p>
-
-{% if subsession.round_number == 10 %}
-
-  <a  <p> Sie haben jetzt <b>10</b> Tweets bewertet!</p>
-
-{% elif subsession.round_number == 20 %}
-
-  <a  <p> Halbzeit! Sie haben jetzt <b>20</b> Tweets bewertet.</p>
-
-{% elif subsession.round_number == 30 %}
-
-  <a  <p> Sie haben jetzt <b>30</b> Tweets bewertet! Jetzt folgen die letzten 10 Tweets.
-
-{% endif %}
+   <p>Falls Sie nichts Besseres zu tun haben, können Sie nochmal zehn weitere Tweets zum bewerten.</p>
 
     {% next_button %}
 
