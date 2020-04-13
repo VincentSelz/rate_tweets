@@ -66,6 +66,36 @@
 </style>
 <center>
     {{ player.tweet |safe  }}
-  <a href="https://forms.gle/Hv2yEDDqdNKwWpKD6" target="_plank" class="btn btn-secondary" role="button">Feedback</a>
-</center>
+    <p>
+      {% if subsession.round_number <= 10 %}
+      Sie sind bei Tweet {{subsession.round_number}} von 10!
+      {% else %}
+      Sie sind bei Tweet {{subsession.round_number}} von 20!
+      {% endif %}
+    </p>
+
+  <a href="https://forms.gle/Hv2yEDDqdNKwWpKD6" target="_plank" class="btn btn-secondary mt-1" role="button">Feedback</a>
+  <a class="btn btn-secondary mt-1" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Hilfe </a>
+  </center>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <p>Für jeden Tweet sehen Sie aufeinanderfolgend vier unterschiedliche Bewertungsskalen, bevor Ihnen der nächste Tweet angezeigt wird. Die Skalen bleiben für alle Tweets gleich,
+        doch die Reihenfolge der Skalen kann sich ändern. Es werden Tweets in Englisch und Deutsch angezeigt. Falls Sie den Tweet nicht verstehen, bitten wir
+        Sie <b>Nicht zutreffend</b> anzugeben.
+        <br>
+        Die Skalen lauten wie folgt:
+        <br>
+        1. positiv - neutral - negativ
+        <br>
+        2. verärgert - neutral - zufrieden
+        <br>
+        3. pessimistisch - neutral - optimistisch
+        <br>
+        4. emotional - sachlich
+        <br>
+        WICHTIG: Bei der Bewertung geht es <b>NICHT</b> um Ihre persönliche Haltung zu dem gezeigten Tweet oder dessen Verfasser*in, sondern darum, welches Gefühl dieser Tweet Ihrer Meinung nach ausdrückt.
+      </p>
+    </div>
+  </div>
 {% endblock %}
