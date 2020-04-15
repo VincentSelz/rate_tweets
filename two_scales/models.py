@@ -94,6 +94,4 @@ class Player(BasePlayer):
     choice1 = models.StringField()
     choice2 = models.StringField()
     pos_rating = make_field(Constants.positive)
-    opt_rating = make_field(Constants.optimistic)
-    hap_rating = make_field(Constants.happiness)
     emo_rating = make_field(Constants.emotional)
