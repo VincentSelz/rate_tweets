@@ -1,23 +1,32 @@
+<head>
+  <title> Vielen Dank für deine Teilnahme! </title>
+</head>
+
 {% extends "global/Page.html" %}
 {% load otree static %}
 
 {% block title %}
-    Vielen Dank für deine Teilnahme!
+{% if subsession.round_number == 10 %}
+<p> Du bist unser*e Hilfswissenschaftler*in des Tages!</p>
+{% elif subsession.round_number == 20 %}
+<p> Hiermit bist du nun Vollzeit-Hilfswissenschaftler*in (mit einer halben Stelle). </p>
+{% elif subsession.round_number == 30 %}
+<p> Du bist der Liebling der Professorin!</p>
+{% elif subsession.round_number == 40 %}
+<p> Du hast es geschafft!</p>
+<p>Du bist unser*e Mitarbeiter*in des Monats!</p>
+{% endif %}
 {% endblock %}
 
 {% block content %}
   {% if subsession.round_number == 10 %}
-  <p> Du bist unser*e Hilfswissenschaftler*in des Tages!</p>
   <p> Nach weiteren zehn Tweets winkt die nächste Beförderung.</p>
   {% elif subsession.round_number == 20 %}
-  <p> Hiermit bist du nun Vollzeit-Hilfswissenschaftler*in mit einer halben Stelle. </p>
   <p> Weitermachen und es folgt die nächste Beförderung.</p>
   {% elif subsession.round_number == 30 %}
-  <p> Du bist der Liebling der Professorin!</p>
   <p> Viel besser geht es nicht, doch jetzt kommen noch die letzten zehn Tweets. </p>
   {% elif subsession.round_number == 40 %}
-  <p> Du hast es geschafft!</p>
-  <p>Du bist unser*e Mitarbeiter*in des Monats.</p>
+  <p>Vielen Dank für deine Teilnahme!</p>
   {% endif %}
 
     {% next_button %}
