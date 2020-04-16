@@ -2,12 +2,23 @@
 {% load otree static %}
 
 {% block title %}
-    Vielen Dank für Ihre Teilnahme!
+    Vielen Dank für deine Teilnahme!
 {% endblock %}
 
 {% block content %}
-
-   <p>Falls Sie nichts Besseres zu tun haben, können Sie nochmal zehn weitere Tweets zum bewerten.</p>
+  {% if subsession.round_number == 10 %}
+  <p> Du bist unser*e Hilfswissenschaftler*in des Tages!</p>
+  <p> Nach weiteren zehn Tweets winkt die nächste Beförderung.</p>
+  {% elif subsession.round_number == 20 %}
+  <p> Hiermit bist du nun Vollzeit-Hilfswissenschaftler*in mit einer halben Stelle. </p>
+  <p> Weitermachen und es folgt die nächste Beförderung.</p>
+  {% elif subsession.round_number == 30 %}
+  <p> Du bist der Liebling der Professorin!</p>
+  <p> Viel besser geht es nicht, doch jetzt kommen noch die letzten zehn Tweets. </p>
+  {% elif subsession.round_number == 40 %}
+  <p> Du hast es geschafft!</p>
+  <p>Du bist unser*e Mitarbeiter*in des Monats.</p>
+  {% endif %}
 
     {% next_button %}
 
