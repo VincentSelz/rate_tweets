@@ -27,7 +27,7 @@ class MyPage2(Page):
 
 class ExitPage(Page):
     def is_displayed(self):
-        return self.round_number == 20 or self.round_number == 30 
+        return self.round_number == 10 or self.round_number == 20 or self.round_number == 30 
 
 
 page_sequence = [Introduction, MyPage1, MyPage2, ExitPage]
