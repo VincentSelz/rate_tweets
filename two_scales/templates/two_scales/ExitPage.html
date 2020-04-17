@@ -20,13 +20,14 @@
 
 {% block content %}
   {% if subsession.round_number == 10 %}
-  <p> Nach weiteren zehn Tweets winkt die nächste Beförderung.</p>
+  <p> Nach zehn weiteren Tweets winkt die nächste Beförderung.</p>
   {% elif subsession.round_number == 20 %}
   <p> Weitermachen und es folgt die nächste Beförderung.</p>
   {% elif subsession.round_number == 30 %}
   <p> Viel besser geht es nicht, doch jetzt kommen noch die letzten zehn Tweets. </p>
   {% elif subsession.round_number == 40 %}
   <p>Vielen Dank für deine Teilnahme!</p>
+  <p> Wenn du jetzt noch eine Ehrenrunde drehen willst, warten nochmal zehn weitere Tweets.</p>
   {% endif %}
 
     {% next_button %}
