@@ -36,9 +36,9 @@ def extend_treatment(list_of_lists):
     return treat
 
 def get_tweets(datafile):
-    """Reads in datafile with html and returns them as a list.
+    """Reads in csv-file with html and returns them as a list.
 
-    Args: datafile in folder data as string.
+    Args: csv-file in folder data as string.
     Out: list of htmls.
     """
     with open('data/{}'.format(datafile), newline='') as f:
