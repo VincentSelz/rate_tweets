@@ -43,7 +43,7 @@ def get_tweets(datafile):
     """
     with open('data/{}'.format(datafile), newline='') as f:
        reader = pd.read_csv(f)
-       tweets = reader['0'].tolist()
+       tweets = reader['tweet'].tolist()
        return tweets
 
 class Constants(BaseConstants):
@@ -61,7 +61,7 @@ class Constants(BaseConstants):
     choices = ['positive', 'emotional']
 
 
-    tweets = get_tweets("html994_selected_tweets_for_labeling.csv")
+    tweets = get_tweets("unique_tweets.csv")
 
     # Treatments as list of list.
     treatment_cycles = []
