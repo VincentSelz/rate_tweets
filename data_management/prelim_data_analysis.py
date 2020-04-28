@@ -5,26 +5,35 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 
-# Read in data
-with open('survey_data/scale_after_scale_2020-04-15.csv', newline='') as f:
-    reader = pd.read_csv(f)
-    
-# Drop unncecessary columns    
-columns = list(reader.columns)
-del columns[20:24]
-df = reader.drop(columns, axis=1)
+def reader(csv):
+    """Read in data from folder survey_data."""
+    with open('survey_data/'+str(csv), newline='') as f:
+        reader = pd.read_csv(f)
+    return reader
 
-# Drop empty rows 
-df.dropna(how='all', inplace=True)   
+def drop_stuff(reader):
+    """Filter out unnecessary columns, drop empy rows and ename the columns."""
+    df = reader.filter(['player.tweet', 'player.pos_rating','player.emo_rating'])
+    df.dropna(how='all', subset=['player.pos_rating','player.emo_rating'], inplace=True)
+    df.columns = ['tweet', 'pos', 'emo']
+    return df 
 
-# Rename columns 
-df.columns = ['pos', 'opt', 'hap','emo']
+def recode_values(df):
+    """Recode the values in the dataframe."""
+    value_dict = {'pos': [-1, 0, 1, np.nan], 
+                  'emo': [-1, 1, np.nan]
+                  }
+    to_replace = {'pos': ['Negativ','Neutral','Positiv', 'Nicht zutreffend'], 
+                  'emo': ['Emotional', 'Sachlich', 'Nicht zutreffend']
+                  }
+    return df.replace(to_replace=to_replace, value=value_dict, inplace=True)
 
-# Recode the values
-values = [-1, 0, 1, np.nan]
-value_dict = {'pos': values, 'opt':values, 'hap':values, 'emo': [-1, 1, np.nan]}
-to_replace = {'pos': ['Negativ','Neutral','Positiv', 'Nicht zutreffend'], 'opt': ['Pessimistisch', 'Neutral', 'Optimistisch', 'Nicht zutreffend'], 'hap': ['Verärgert', 'Neutral', 'Zufrieden', 'Nicht zutreffend'], 'emo': ['Emotional', 'Sachlich', 'Nicht zutreffend' ]}
-df = df.replace(to_replace=to_replace, value=value_dict)
+all_scales = drop_stuff(reader('scale_after_scale_2020-04-17.csv'))
+two_scales = drop_stuff(reader('two_scales_2020-04-27.csv'))
+
+
+
+result = pd.concat([all_scales, two_scales], join='outer', sort=False)
 
 # Get first correlation matrix with spearman
 corr_matrix = df.corr(method='spearman')
@@ -32,7 +41,7 @@ corr_matrix = df.corr(method='spearman')
 # Beware that NaN values are kicked out. Hence, we cannot say something about the relationship of Nicht zutreffend and the other values.
 
 # Make heatmap
-plt.figure(figsize=(20, 16))
+plt.figure(figsize=(25, 20))
 
 sns.heatmap(
     data=df.corr(method="spearman"),
@@ -43,7 +52,7 @@ sns.heatmap(
     cmap="coolwarm",
 )
 
-plt.title("Heatmap of Correlation Matrix of Scales", fontsize=20)
+plt.title("Heatmap of Correlation Matrix of Scales", fontsize=30)
 
 # Export it to screenshots
 plt.savefig("screenshots/heatmap.png")
