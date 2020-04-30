@@ -35,7 +35,7 @@ Run them from the command line with:
 $ otree test two_scales
 ```
 
-When you are interested in the produced data use:
+When you are interested in the produced data, use:
 
 ```bash
 $ otree test two_scales --export=out_data
