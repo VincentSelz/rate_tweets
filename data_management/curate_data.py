@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 23 20:24:03 2020
-
-@author: vincentselz
-"""
-
 """Quick preliminary data exploration."""
 
 import pandas as pd
@@ -40,6 +32,7 @@ two_scales = drop_stuff(reader('two_scales_2020-04-28.csv'))
 
 
 result = pd.concat([all_scales, two_scales], join='outer', sort=False)
+print(len(result))
 
 unique_tweets = result.drop_duplicates(subset='tweet')
 

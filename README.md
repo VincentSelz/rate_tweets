@@ -1,6 +1,6 @@
 # Survey to rate tweets
 
-![](https://media.giphy.com/media/l4Xicqrij80QCgozCW/giphy.gif) 
+![](https://media.giphy.com/media/l4Xicqrij80QCgozCW/giphy.gif)
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ install oTree.
 
 ## General Structure
 
-This repo consists of several apps, the furthest developed is scale_after_scale. It displays one scale after another for one tweet and repeats that process 40 times.
+This repo consists of several apps, the furthest developed is called two_scales. It displays two scales for 50 tweets.
 
 
 To run the surveys one has to navigate to the parent folder of the project. Then, run:
@@ -32,13 +32,13 @@ The apps have bots configured who randomly choose their answers.
 Run them from the command line with:
 
 ```bash
-$ otree test appname
+$ otree test two_scales
 ```
 
 When you are interested in the produced data use:
 
 ```bash
-$ otree test appname --export=out_data
+$ otree test two_scales --export=out_data
 ```
 
 ## Resources
