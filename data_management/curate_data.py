@@ -1,4 +1,4 @@
-"""Quick preliminary data exploration."""
+"""Curate the labelled data."""
 
 import pandas as pd
 import numpy as np
